@@ -1,0 +1,93 @@
+/*****************************
+** Header
+*****************************/
+.adminLogin-wrap {
+  background-color: rgb(236, 236, 236);
+}
+
+.adminLogin-header {
+  width: auto;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  padding: 20px 30px;
+  align-items: center;
+}
+
+.header-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.header-right-menu {
+  color: white;
+  text-decoration: none;
+  padding-left: 15px;
+}
+
+/*****************************
+** AdminLogin
+*****************************/
+.adminLogin-content-box {
+  background-color: white;
+  border-radius: 8px;
+  width: 500px;
+  margin: 15px auto;
+  padding: 120px 0px;
+  text-align: center;
+}
+
+.adminLogin-content-box > p:first-child {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.adminLogin-content-box > p:nth-child(2) {
+  font-size: 0.8rem;
+}
+
+.adminLogin-form-ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 25px;
+}
+
+.adminLogin-form-ul > li:not(:first-child) {
+  margin-top: 15px;
+}
+
+.adminLogin-form-ul > li > input {
+  border: 1px solid silver;
+  border-radius: 3px;
+  width: 320px;
+  height: 30px;
+}
+
+.adminLogin-form-ul > li > button {
+  width: 325px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: rgb(76, 58, 212);
+  color: white;
+}
+
+/*****************************
+** Footer
+*****************************/
+.adminLogin-footer {
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.adminLogin-footer > a {
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(37, 37, 37);
+}
+
+.adminLogin-footer-text {
+  font-size: 0.8rem;
+}
