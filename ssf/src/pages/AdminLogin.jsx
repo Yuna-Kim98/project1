@@ -69,11 +69,11 @@ export default function Layout() {
                         ref={refs.pwdRef}
                         onChange={handleChangeForm} 
                         placeholder='비밀번호' />
-                        { errMsg.pwd !== '' && <p className='adminLogin-form-errMsg'>{errMsg.pwd}</p> }
+                  { errMsg.pwd !== '' && <p className='adminLogin-form-errMsg'>{errMsg.pwd}</p> }
                 </li>
               </ul>
               <div>
-                  <button type='submit'>로그인</button>
+                  <button type='submit' className='adminLogin-btn'>로그인</button>
               </div>
             </div>
             <div className='adminLogin-form-content2'>

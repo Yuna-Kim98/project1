@@ -45,115 +45,102 @@ body {
 }
 
 .adminLogin-content-title {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  color: rgb(100, 100, 100);
+  color: rgb(39, 39, 39);
 }
 
 .adminLogin-content-box {
-  border-radius: 8px;
+  border-radius: 3px;
   background-color: #fff;
   text-align: center;
-}
-
-.adminLogin-form-content1 {
-  border: 1px solid red;
-  display: flex;
-  justify-content: center;
-}
-
-.adminLogin-form-ul {
-  list-style-type: none;
-}
-.adminLogin-form-ul > li:first-child {
-  margin-bottom: 20px;
-}
-.adminLogin-form-ul > li > input {
-  border: 1px solid blue;
-  width: 400px;
-  height: 30px;
-}
-
-/* .adminLogin-content-box {
-  background-color: white;
-  border-radius: 8px;
-  width: 500px;
-  height: 700px;
-  margin: 15px auto;
-  text-align: center;
-}
-
-.adminLogin-content-box {
-  position: relative;
-}
-
-.adminLogin-content-box > div {
-  position: absolute;
-  top: 45%;
-  left: 17%;
-  transform: translate(0, -50%);
-}
-
-.adminLogin-contents > p:first-child {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.adminLogin-contents > p:nth-child(2) {
-  font-size: 0.8rem;
-}
-
-.adminLogin-form-ul {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 25px;
-}
-
-.adminLogin-form-ul > li:not(:first-child) {
-  margin-top: 15px;
-}
-
-.adminLogin-form-ul > li > input {
-  border: 1px solid silver;
-  border-radius: 3px;
-  width: 320px;
-  height: 30px;
-}
-
-.adminLogin-form-ul > li > button {
-  width: 325px;
-  height: 50px;
-  border-radius: 8px;
-  background-color: rgb(76, 58, 212);
-  color: white;
-}
-
-.adminLogin-form-errMsg {
-  margin-top: 5px;
-  color: red;
-  font-size: 0.7rem;
-  text-align: left;
-} */
-
-/*****************************
-** Footer
-*****************************/
-.adminLogin-footer {
-  text-align: center;
-  padding: 20px 0px;
-  height: 100px;
+  height: 360px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.adminLogin-footer-contents > a {
+.adminLogin-form-content1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adminLogin-form-ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.adminLogin-form-ul > li:first-child {
   margin-bottom: 20px;
+}
+
+.adminLogin-form-ul > li > input {
+  border: none;
+  border-bottom: 1px solid silver;
+  width: 400px;
+  height: 30px;
+}
+
+.adminLogin-btn {
+  width: 130px;
+  height: 90px;
+  margin-left: 25px;
+  background-color: #000;
+  color: #fff;
+  font-size: 1rem;
   font-weight: bold;
+}
+
+.adminLogin-form-content2 {
+  text-align: left;
+  font-size: 0.9rem;
+  color: silver;
+}
+
+.adminLogin-form-content3 {
+  border-top: 1px solid silver;
+  margin-top: 30px;
+  padding-top: 15px;
+  text-align: left;
+  color: gray;
+}
+
+.adminLogin-form-content3 > a {
   text-decoration: none;
-  color: rgb(37, 37, 37);
+  font-size: 0.9rem;
+}
+
+.adminLogin-form-content3 > a > span:first-child {
+  margin-right: 35px;
+}
+
+/*****************************
+** Footer
+*****************************/
+.adminLogin-footer {
+  border-top: 1px solid silver;
+  text-align: left;
+  padding: 30px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .adminLogin-footer-text {
   font-size: 0.8rem;
+  margin: 0;
+  color: #000;
+}
+
+.adminLogin-footer-contents1 > p:first-child {
+  font-weight: bold;
+}
+
+.adminLogin-footer-text:nth-child(3) {
+  color: rgb(167, 167, 167);
+}
+
+.adminLogin-footer-text:not(:first-child) {
+  margin-top: 3px;
 }
