@@ -6,12 +6,13 @@ export default function Header() {
     <div className='adminLogin-header'>
       <div className='header-left'>
         <Link to='/' className='header-logo'>
-          <span>SSF PARTNER</span>
+          <img src="/image/ssfshop.png" alt="" />
+          <span>관리자 페이지</span>
         </Link>
       </div>
       <nav className='header-right'>
-        <Link to='/' className='header-right-menu'>입점문의</Link>
-        <Link to='/' className='header-right-menu'>광고문의</Link>
+        <Link to='/' className='header-right-menu'>고객정보</Link>
+        <Link to='/' className='header-right-menu'>상품리스트</Link>
       </nav>
     </div>
   );

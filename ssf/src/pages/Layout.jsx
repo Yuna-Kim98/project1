@@ -5,10 +5,10 @@ import Footer from '../components/Footer.jsx';
 
 export default function Layout() {
   return(
-    <div>
+    <>
       <Header />
       <Outlet />
       <Footer />
-    </div>
+    </>
   );
 }
