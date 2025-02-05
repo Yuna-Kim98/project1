@@ -61,7 +61,6 @@ export default function Layout() {
                         ref={refs.idRef}
                         onChange={handleChangeForm} 
                         placeholder='아이디' />
-                { errMsg.id !== '' && <p className='adminLogin-form-errMsg'>{errMsg.id}</p> }
                 </li>
                 <li>
                   <input type='password' 
@@ -69,13 +68,15 @@ export default function Layout() {
                         ref={refs.pwdRef}
                         onChange={handleChangeForm} 
                         placeholder='비밀번호' />
-                  { errMsg.pwd !== '' && <p className='adminLogin-form-errMsg'>{errMsg.pwd}</p> }
                 </li>
               </ul>
               <div>
                   <button type='submit' className='adminLogin-btn'>로그인</button>
               </div>
             </div>
+            { errMsg.id !== '' && <p className='adminLogin-form-errMsg'>{errMsg.id}</p> }
+            { errMsg.pwd !== '' && <p className='adminLogin-form-errMsg'>{errMsg.pwd}</p> }
+            {/* 폼 데이터 일치하지 않을 시 에러메시지 :: 아이디 또는 비밀번호가 일치하지 않습니다. */}
             <div className='adminLogin-form-content2'>
               <input type="checkbox" />아이디 저장
             </div>
