@@ -1,10 +1,10 @@
 import { db } from './db.js';
 
 /** 관리자 페이지 로그인 - select **/
-export const checkAdminLogin = async({id, pwd}) => { // 수정 필요 : 테이블명, property
+export const checkAdminLogin = async({id, pwd}) => { // 수정 필요 : 테이블명, 컬럼명
     const sql = `
         select count(*) as result_rows
-        from 테이블명
+        from shoppy_member
         where id = ? and pwd = ?
     `;
 

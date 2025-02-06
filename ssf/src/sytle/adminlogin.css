@@ -1,7 +1,5 @@
 body {
   width: 100%;
-}
-.adminLogin-wrap {
   background-color: rgb(242, 244, 250);
 }
 
@@ -54,7 +52,7 @@ body {
   border-radius: 3px;
   background-color: #fff;
   text-align: center;
-  height: 360px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +98,7 @@ body {
 
 .adminLogin-form-errMsg {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   text-align: left;
   color: red;
   font-size: 0.8rem;

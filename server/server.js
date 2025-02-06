@@ -18,5 +18,5 @@ server.listen(port, () => {
 /***************
  * path 경로 수정
  * adminRepository 쿼리 수정
- * adminController 데이터값 수정(req.body.id)
+ * adminController 컬럼명 수정
 ***************/
