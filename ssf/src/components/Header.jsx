@@ -14,10 +14,15 @@ export default function Header() {
         setIsLoggedIn(false);
         navigate('/');
       }
+      //  else {
+      //   navigate('/admin/main');
+      // } 
+      console.log('select --> ', select);
     } else {
-      navigate('/main');
+      navigate('/admin/main');
     }
   }
+console.log('isLoggedIn --> ', isLoggedIn);
 
   return(
     <div className='adminLogin-header'>

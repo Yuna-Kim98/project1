@@ -9,7 +9,7 @@ export const AuthProvider = ({children}) => {
     // 토큰 있으면 로그인 유지
     useEffect(() => {
         const token = localStorage.getItem("token");
-        setIsLoggedIn(!isLoggedIn);
+        setIsLoggedIn(!!isLoggedIn);
     }, []);
 
     return (

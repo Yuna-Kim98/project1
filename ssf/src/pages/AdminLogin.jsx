@@ -1,8 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../auth/AuthContext.js';
 
 export default function Layout() {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const initForm = { 'id': '', 'pwd': '' };
   const initErr = { 'id': '', 'pwd': '', 'err': '' };
@@ -41,6 +43,7 @@ export default function Layout() {
           if (res.data.result_rows === 1) {
             alert('로그인 성공!');
             localStorage.setItem("token", res.data.token);
+            setIsLoggedIn(true);
             navigate('/admin/main');
           } else if (refs.idRef.current.value !== '' && refs.pwdRef.current.value !== '' && res.data.result_rows === 0) {
             alert('아이디 또는 비밀번호가 일치하지 않습니다.');
