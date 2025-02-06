@@ -1,7 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../auth/AuthContext.js';
 
 export default function Header() {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLoginState = () => {
+    if (isLoggedIn) { // 로그아웃 버튼을 클릭할 때
+      const select = window.confirm('로그아웃 하시겠습니까?');
+      if (select) {
+        localStorage.removeItem("token");
+        setIsLoggedIn(false);
+        navigate('/');
+      }
+    } else {
+      navigate('/main');
+    }
+  }
+
   return(
     <div className='adminLogin-header'>
       <div className='header-left'>
@@ -11,6 +28,9 @@ export default function Header() {
         </Link>
       </div>
       <nav className='header-right'>
+        <Link to='/' type='button' onClick={handleLoginState}>
+          { isLoggedIn ? "로그아웃" : "" }
+        </Link>
         <Link to='/' className='header-right-menu'>고객정보</Link>
         <Link to='/' className='header-right-menu'>상품리스트</Link>
       </nav>

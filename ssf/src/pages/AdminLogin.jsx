@@ -1,7 +1,11 @@
 import React, { useRef, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Layout() {
+  const navigate = useNavigate();
   const initForm = { 'id': '', 'pwd': '' };
+  const initErr = { 'id': '', 'pwd': '', 'err': '' };
   const refs = {
     idRef: useRef(null),
     pwdRef: useRef(null)
@@ -29,6 +33,22 @@ export default function Layout() {
     if (validate()) {
       console.log('send data --> ', formData);
     }
+
+    // 서버 전송
+    axios.post('http://localhost:9000/admin/login', formData)
+        .then(res => {
+          console.log('res.data --> ', res.data);
+          if (res.data.result_rows === 1) {
+            alert('로그인 성공!');
+            localStorage.setItem("token", res.data.token);
+            navigate('/admin/main');
+          } else if (refs.idRef.current.value !== '' && refs.pwdRef.current.value !== '' && res.data.result_rows === 0) {
+            alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+            // setErrMsg({...errMsg, ['err']: "아이디 또는 비밀번호가 일치하지 않습니다."});
+            refs.idRef.current.focus();
+          }
+        })
+        .catch(err => console.log(err));
   }
   
   /** validate : 유효성 체크 **/
