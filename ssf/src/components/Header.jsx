@@ -14,12 +14,9 @@ export default function Header() {
         setIsLoggedIn(false);
         navigate('/');
       }
-      //  else {
-      //   navigate('/admin/main');
-      // } 
       console.log('select --> ', select);
-    } else {
-      navigate('/admin/main');
+    } else { // 
+      navigate('/');
     }
   }
 console.log('isLoggedIn --> ', isLoggedIn);

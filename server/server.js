@@ -3,7 +3,7 @@ import cors from 'cors';
 import adminRouter from './router/adminRouter.js' 
 
 const server = express();
-const port = 9000;
+const port = 9001;
 
 server.use(express.json());
 server.use(express.urlencoded());
@@ -19,4 +19,5 @@ server.listen(port, () => {
  * path 경로 수정
  * adminRepository 쿼리 수정
  * adminController 컬럼명 수정
+ * ** port 번호 확인
 ***************/
