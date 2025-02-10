@@ -33,8 +33,8 @@ console.log('isLoggedIn --> ', isLoggedIn);
         <Link to='/' type='button' onClick={handleLoginState}>
           { isLoggedIn ? "로그아웃" : "" }
         </Link>
-        <Link to='/' className='header-right-menu'>고객정보</Link>
-        <Link to='/' className='header-right-menu'>상품리스트</Link>
+        <Link to='/' className='header-right-menu'>{ isLoggedIn ? "고객정보" : "" }</Link>
+        <Link to='/' className='header-right-menu'>{ isLoggedIn ? "상품리스트" : "" }</Link>
       </nav>
     </div>
   );
