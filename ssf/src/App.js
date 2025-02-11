@@ -1,45 +1,32 @@
-// import React from 'react';
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import './styles/style.css';
+import './sytle/style.css';
+import React, {useState} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'; //react-router-dom에서 제공하는 컴포넌트
 import Layout from './pages/Layout.jsx';
-import AdminLogin from './pages/AdminLogin.jsx';
-import AdminMain from './pages/AdminMain.jsx';
-import { AuthProvider } from './auth/AuthContext.js';
-import './sytle/adminlogin.css'
-import ImageList from './commons/ImageList.jsx';
-import axios from 'axios';
-import ProductBlock from './commons/ProductBlock.jsx';
-
+import Home from './pages/Home.jsx';
+import Login from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx'
+import Carts from './pages/Carts.jsx';
+import Person from './pages/Person.jsx';
+import Products from './pages/Products.jsx';
+import DetailProducts from './pages/DetailProducts.jsx';
 function App() {
-  // const [imgList, setImgList] = useState([]);
-  // const [detailList, setDetailList] = useState([]);
-
-  //   useEffect(() => {
-  //       axios.get("/data/example.json")
-  //           .then(res => {
-  //               setImgList(res.data.images);
-  //               setDetailList(res.data.detail);
-  //               console.log('setImgList --> ', res.data.images);
-  //               console.log('setDetailListt --> ', res.data.detail);
-  //           })
-  //           .catch(err => console.log(err));
-  //   }, []);
-
   return (
-    <div className="adminLogin-wrap">
-      {/* <ImageList imgList={imgList} />
-      <ProductBlock detailList={detailList} /> */}
-      <AuthProvider>
+    <>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Layout />}>
-              <Route index element={<AdminLogin />} />
-              <Route path='/admin/main' element={<AdminMain />} />
+            <Route path='/' element={<Layout/>}>
+                    <Route index element={<Home/>}></Route>
+                    <Route path='/all' element={<Products/>}></Route>    
+                    <Route path='/login' element={<Login/>}></Route>    
+                    <Route path='/signup' element={<Signup/>}></Route>    
+                    <Route path='/carts' element={<Carts/>}></Route>    
+                    <Route path='/person' element={<Person/>}></Route>
+                    <Route path={`/detail`} element={<DetailProducts/>}></Route>
             </Route>
           </Routes>
         </BrowserRouter>
-      </AuthProvider>
-    </div>
+    </>
   );
 }
 
