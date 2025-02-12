@@ -4,16 +4,28 @@ import ProductBlock from '../commons/ProductBlock';
 
 
 export default function SectionWrap({id, title, children}) {
-    const [category, setCategory] = useState([]);
+    const [category, setCategory] = useState("상의"); // 아우터로~ 탭 메뉴 관리
+    const [products, setProducts] = useState([]); // 전체 상품 데이터
+    const [detailList, setDetailList] = useState([]); // 필터링을 거친 상품 데이터
+
+    const tabList = [
+        { tabName: "상의" },
+        { tabName: "하의" },
+        { tabName: "아우터" },
+        { tabName: "신발" }
+    ];
     
     useEffect(() => {
         axios.post("http://localhost:9000/product/category")
                 .then(res => {
-                    // res.data.filter();
-                    setCategory(res.data);
+                    setProducts(res.data);
+                    const filterProducts = res.data.filter(list => list.category === category);
+                    setDetailList(filterProducts);
                 })
                 .catch(err => console.log(err));
-    }, []);
+    }, [category]);
+    console.log('products --> ', products);
+    console.log('detailList --> ', detailList);
     console.log('category --> ', category);
 
     return (
@@ -60,12 +72,18 @@ export default function SectionWrap({id, title, children}) {
             {id === 'outer' && 
             <div className='contents-box god-lists' >
                 <ul className='category-select'>
-                    <li>상의</li>
-                    <li>하의</li>
-                    <li>아우터</li>
-                    <li>신발</li>
+                    { tabList && tabList.map((list) => 
+                        <li onClick={() => setCategory(list.tabName)}>{list.tabName}</li>
+                    ) }
                 </ul>
+                {/* <ul>
+                    { detailList && detailList.map((list, i) => 
+                        i < 6 &&
+                        <li>{list.name}</li>
+                    ) } 
+                </ul> */}
                 {/* <ProductBlock /> */}
+                {/* detailList, ulClassName, liClassName */}
             </div>
             }
             {children}

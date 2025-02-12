@@ -293,4 +293,20 @@ FROM products
 LEFT JOIN order_items ON products.id = order_items.product_id -- 상품이 포함된 주문 내역과 연결
 LEFT JOIN cart ON products.id = cart.product_id -- 상품이 장바구니에 담긴 내역과 연결
 LEFT JOIN favorites ON products.id = favorites.product_id; -- 상품이 좋아요된 내역과 연결
- 
+
+
+show tables;
+select image->>'$[0]' from products;
+select * from products;
+
+select id,
+		category,
+        name,
+        image->>'$[0]' as image,
+        likes,
+        star,
+        stock,
+        original_price,
+        discount_rate,
+        discounted_price
+from products;
