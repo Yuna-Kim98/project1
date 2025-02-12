@@ -1594,7 +1594,24 @@ footer .etc .etc-right{
     white-space: nowrap;
 }
 /* 아우터로 더하는~ */
-.god-item {
+/**************************
+ * category(대분류) tab
+ * YuNa
+**************************/
+.category-select {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+.category-select > li {
+    border: 1px solid blue;
+    width: 100px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+/* .god-item {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1625,4 +1642,4 @@ footer .etc .etc-right{
         width: auto;
         max-width: none;
     }
-}
+} */

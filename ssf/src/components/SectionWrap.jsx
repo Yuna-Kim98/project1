@@ -4,19 +4,17 @@ import ProductBlock from '../commons/ProductBlock';
 
 
 export default function SectionWrap({id, title, children}) {
-    const [detailList, setDetailList] = useState([]);
-    // const [ulClassName, setUlClassName] = useState("");
-    // const [liClassName, setLiClassName] = useState("");
-    useEffect(() => {
-        axios.get("http://localhost:9000/products")
-        .then(res => {  
-            setDetailList(res.data);
-        })
-        .catch(error => console.log(error));
-        
-    }, [])
-    console.log(detailList);
+    const [category, setCategory] = useState([]);
     
+    useEffect(() => {
+        axios.post("http://localhost:9000/product/category")
+                .then(res => {
+                    // res.data.filter();
+                    setCategory(res.data);
+                })
+                .catch(err => console.log(err));
+    }, []);
+    console.log('category --> ', category);
 
     return (
         <section id={id} style={{backgroundColor:"green"}}>
@@ -61,14 +59,13 @@ export default function SectionWrap({id, title, children}) {
             }
             {id === 'outer' && 
             <div className='contents-box god-lists' >
-                <ul>
-                    <li>
-                        <ProductBlock
-                             detailList={detailList}
-                             ulClassName="list-col-6"
-                             liClassName="god-item"/>
-                    </li>
+                <ul className='category-select'>
+                    <li>상의</li>
+                    <li>하의</li>
+                    <li>아우터</li>
+                    <li>신발</li>
                 </ul>
+                {/* <ProductBlock /> */}
             </div>
             }
             {children}

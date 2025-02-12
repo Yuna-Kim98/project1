@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import adminRouter from './router/adminRouter.js' 
+import adminRouter from './router/adminRouter.js';
+import productRouter from './router/productRouter.js';
 
 const server = express();
 const port = 9000;
@@ -10,6 +11,7 @@ server.use(express.urlencoded());
 server.use(cors());
 
 server.use('/admin', adminRouter);
+server.use('/product', productRouter);
 // 상품 데이터 가져오기 API
 server.get('/products', async (req, res) => {
     try {

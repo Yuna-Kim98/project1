@@ -92,6 +92,15 @@ select
         group by pid;
     
 select upload_file from shoppy_product;
+
+select * from shoppy_product;
+
+select pid,
+		pname,
+        price,
+        upload_file as uploadFils
+from shoppy_product
+where pid = 2;
     
     
     
