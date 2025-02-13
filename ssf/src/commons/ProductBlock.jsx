@@ -12,7 +12,7 @@ export default function ProductBlock({detailList, ulClassName, liClassName}) {
                         <Image img={item.img} alt={item.alt} className='' />
                     </div>
                     <div>
-                        <p>{item.brand}</p>
+                        <p>{item.brand && item.brand}</p>
                         <p>{item.title}</p>
                         <p>{item.costprice}</p>
                         <p><span>{item.discount}%</span><span>{item.saleprice}</span></p>
@@ -20,16 +20,69 @@ export default function ProductBlock({detailList, ulClassName, liClassName}) {
                             <span>
                                 <span><FaStar /></span>
                                 <span>{item.star}</span>
+                                <span>({item.reviewCount})</span>
                             </span>
                             <span>
                                 <span><FaHeart /></span>
-                                <span>{item.like}</span>
+                                <span>{item.likes}</span>
                             </span>
                         </p>
                     </div>
                 </li>
             ) }
         </ul>
+        // <ul className={ulClassName}>
+        //     { ulClassName === 'yuna-category-tab' ? (
+        //         detailList && detailList.map((item, i) => 
+        //             i < 6 &&
+        //             <li className={liClassName}>
+        //                 <div>
+        //                     <Image img={item.img} alt={item.alt} className='' />
+        //                 </div>
+        //                 <div>
+        //                     <p>{item.brand}</p>
+        //                     <p>{item.title}</p>
+        //                     <p>{item.costprice}</p>
+        //                     <p><span>{item.discount}%</span><span>{item.saleprice}</span></p>
+        //                     <p>
+        //                         <span>
+        //                             <span><FaStar /></span>
+        //                             <span>{item.star}</span>
+        //                         </span>
+        //                         <span>
+        //                             <span><FaHeart /></span>
+        //                             <span>{item.like}</span>
+        //                         </span>
+        //                     </p>
+        //                 </div>
+        //             </li>
+        //         )
+        //     ) : (
+        //         detailList && detailList.map((item, i) => 
+        //             <li className={liClassName}>
+        //                 <div>
+        //                     <Image img={item.img} alt={item.alt} className='' />
+        //                 </div>
+        //                 <div>
+        //                     <p>{item.brand}</p>
+        //                     <p>{item.title}</p>
+        //                     <p>{item.costprice}</p>
+        //                     <p><span>{item.discount}%</span><span>{item.saleprice}</span></p>
+        //                     <p>
+        //                         <span>
+        //                             <span><FaStar /></span>
+        //                             <span>{item.star}</span>
+        //                         </span>
+        //                         <span>
+        //                             <span><FaHeart /></span>
+        //                             <span>{item.like}</span>
+        //                         </span>
+        //                     </p>
+        //                 </div>
+        //             </li>
+        //         )
+        //     ) }
+        // </ul> 
     );
 }
 

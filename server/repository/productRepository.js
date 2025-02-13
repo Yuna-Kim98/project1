@@ -1,16 +1,16 @@
 import { db } from './db.js';
 
 export const getCategoryItems = async() => {
-    const sql = `select id,
+    const sql = `select pid,
                         category,
-                        name,
-                        image->>'$[0]' as image,
+                        name as title,
+                        image->>'$[0]' as img,
                         likes,
                         star,
-                        stock,
-                        original_price,
-                        discount_rate,
-                        discounted_price
+                        stock as reviewCount,
+                        format(original_price, 0) as costprice,
+                        discount_rate as discount,
+                        format(discounted_price, 0) as saleprice
                 from products`;
 
     const [result] = await db.execute(sql);

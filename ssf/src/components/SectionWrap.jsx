@@ -5,7 +5,7 @@ import ProductBlock from '../commons/ProductBlock';
 
 export default function SectionWrap({id, title, children}) {
     const [category, setCategory] = useState("상의"); // 아우터로~ 탭 메뉴 관리
-    const [products, setProducts] = useState([]); // 전체 상품 데이터
+    const [products, setProducts] = useState([]); // category tab 전체 상품 데이터
     const [detailList, setDetailList] = useState([]); // 필터링을 거친 상품 데이터
 
     const tabList = [
@@ -20,13 +20,14 @@ export default function SectionWrap({id, title, children}) {
                 .then(res => {
                     setProducts(res.data);
                     const filterProducts = res.data.filter(list => list.category === category);
-                    setDetailList(filterProducts);
+                    const result = filterProducts.filter((item, i) => i < 6 && item);
+                    setDetailList(result);
                 })
                 .catch(err => console.log(err));
     }, [category]);
-    console.log('products --> ', products);
-    console.log('detailList --> ', detailList);
-    console.log('category --> ', category);
+    // console.log('products --> ', products);
+    // console.log('detailList --> ', detailList);
+    // console.log('category --> ', category);
 
     return (
         <section id={id} style={{backgroundColor:"green"}}>
@@ -73,9 +74,13 @@ export default function SectionWrap({id, title, children}) {
             <div className='contents-box god-lists' >
                 <ul className='category-select'>
                     { tabList && tabList.map((list) => 
-                        <li onClick={() => setCategory(list.tabName)}>{list.tabName}</li>
+                        <li className={list.tabName === category ? 'category-select-click-tabMenu' : 'category-select-tabMenu'}
+                            onClick={() => setCategory(list.tabName)}>
+                        {list.tabName}
+                        </li>
                     ) }
                 </ul>
+                <ProductBlock detailList={detailList} ulClassName="yuna-category-tab" liClassName="yuna-category-tab-list" />
                 {/* <ul>
                     { detailList && detailList.map((list, i) => 
                         i < 6 &&

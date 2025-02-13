@@ -16,7 +16,7 @@ export default function Home(){
         },
         {
           id: "outer",
-          title: "아우터로 더하는 한 겹의 포근함",
+          title: "랭킹",
         },
         {
           id: "rank",

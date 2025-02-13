@@ -1604,12 +1604,67 @@ footer .etc .etc-right{
     justify-content: space-between;
     width: 500px;
 }
-.category-select > li {
-    border: 1px solid blue;
+.category-select-click-tabMenu {
+    border: 1px solid #fff;
+    background-color: #000;
     width: 100px;
     border-radius: 30px;
     font-size: 1rem;
     font-weight: 400;
+    color: #fff;
+}
+.category-select-tabMenu {
+    border: 1px solid #000;
+    background-color: #fff;
+    width: 100px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.yuna-category-tab {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.yuna-category-tab-list {
+    width: 220px;
+    height: auto;
+}
+.yuna-category-tab-list > div:first-child > img {
+    width: 100%;
+}
+.yuna-category-tab-list > div:nth-child(2) {
+    text-align: left;
+    font-size: 1rem;
+    font-weight: normal;
+}
+.yuna-category-tab-list > div:nth-child(2) > p:nth-child(2) {
+    /* width: 100px; */
+    height: 45px;
+    line-height: 20px;
+}
+.yuna-category-tab-list > div:nth-child(2) > p:nth-child(3) {
+    text-decoration: line-through;
+    color: gray;
+    padding: 0;
+}
+.yuna-category-tab-list > div:nth-child(2) > p:nth-child(4) {
+    font-weight: bold;
+}
+.yuna-category-tab-list > div:nth-child(2) > p:nth-child(4) > span:first-child {
+    color: var(--purple500);
+    padding-right: 5px;
+}
+.yuna-category-tab-list > div:nth-child(2) > p:last-child {
+    font-size: 0.9rem;
+    color: silver;
+}
+.yuna-category-tab-list > div:nth-child(2) > p:last-child > span:first-child {
+    margin-right: 10px;
+}
+.yuna-category-tab-list > div:nth-child(2) > p:last-child > span:first-child > span:first-child,
+.yuna-category-tab-list > div:nth-child(2) > p:last-child > span:last-child > span:first-child {
+    margin-right: 3px;
 }
 /* .god-item {
     position: relative;
