@@ -1621,49 +1621,48 @@ footer .etc .etc-right{
     font-size: 1rem;
     font-weight: 400;
 }
-.yuna-category-tab {
+.category-tab {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
-.yuna-category-tab-list {
+.category-tab-list {
     width: 220px;
     height: auto;
 }
-.yuna-category-tab-list > div:first-child > img {
+.category-list-img {
     width: 100%;
 }
-.yuna-category-tab-list > div:nth-child(2) {
+.category-list-info {
     text-align: left;
     font-size: 1rem;
     font-weight: normal;
 }
-.yuna-category-tab-list > div:nth-child(2) > p:nth-child(2) {
-    /* width: 100px; */
+.category-list-title {
     height: 45px;
     line-height: 20px;
 }
-.yuna-category-tab-list > div:nth-child(2) > p:nth-child(3) {
+.category-list-costprice {
     text-decoration: line-through;
     color: gray;
     padding: 0;
 }
-.yuna-category-tab-list > div:nth-child(2) > p:nth-child(4) {
+.category-list-price-container {
     font-weight: bold;
 }
-.yuna-category-tab-list > div:nth-child(2) > p:nth-child(4) > span:first-child {
+.category-list-price-container > span:first-child {
     color: var(--purple500);
     padding-right: 5px;
 }
-.yuna-category-tab-list > div:nth-child(2) > p:last-child {
+.category-list-star-likes-container {
     font-size: 0.9rem;
     color: silver;
 }
-.yuna-category-tab-list > div:nth-child(2) > p:last-child > span:first-child {
+.category-list-star-wrap {
     margin-right: 10px;
 }
-.yuna-category-tab-list > div:nth-child(2) > p:last-child > span:first-child > span:first-child,
-.yuna-category-tab-list > div:nth-child(2) > p:last-child > span:last-child > span:first-child {
+.category-list-star-wrap > span:first-child,
+.category-list-likes-wrap > span:first-child {
     margin-right: 3px;
 }
 /* .god-item {

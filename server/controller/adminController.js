@@ -13,3 +13,17 @@ export const checkAdminLogin = async(req, res) => {
     res.json(result);
     res.end();
 }
+
+/** 관리자 페이지 고객 정보 호출 **/
+export const getCustomerData = async(req, res) => {
+    const result = await repository.getCustomerData(req.body);
+    res.json(result);
+    res.end();
+}
+
+/** 관리자 페이지 상품 정보 호출**/
+export const getProductData = async(req, res) => {
+    const result = await repository.getProductData(req.body);
+    res.json(result);
+    res.end();
+}

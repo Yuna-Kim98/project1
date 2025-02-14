@@ -297,14 +297,28 @@ show tables;
 select * from products;
 desc products;
 
+select * from admins;
+select * from customers;
+select name,
+		username,
+		email,
+        phone,
+        address,
+        left(birth_date, 10) as birth_date,
+        membership_level
+from customers;
+
+select * from products;
 select pid,
-                        category,
-                        name as title,
-                        image->>'$[0]' as img,
-                        likes,
-                        star,
-                        stock as reviewCount,
-                        format(original_price, 0) as costprice,
-                        discount_rate as discount,
-                        format(discounted_price, 0) as saleprice
-                from products;
+		category,
+        sub_category,
+        name,
+        color,
+        size,
+        likes,
+        star,
+        stock,
+        original_price,
+        discount_rate,
+        discounted_price
+from products;

@@ -5,7 +5,7 @@ import AdminLayout from './pages/AdminLayout.jsx';
 import AdminLogin from './pages/AdminLogin.jsx';
 import AdminMain from './pages/AdminMain.jsx';
 import { AuthProvider } from './auth/AuthContext.js';
-import './sytle/adminlogin.css'
+import './sytle/adminlogin.css';
 
 function App() {
 

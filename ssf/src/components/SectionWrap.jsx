@@ -25,9 +25,6 @@ export default function SectionWrap({id, title, children}) {
                 })
                 .catch(err => console.log(err));
     }, [category]);
-    // console.log('products --> ', products);
-    // console.log('detailList --> ', detailList);
-    // console.log('category --> ', category);
 
     return (
         <section id={id} style={{backgroundColor:"green"}}>
@@ -80,15 +77,7 @@ export default function SectionWrap({id, title, children}) {
                         </li>
                     ) }
                 </ul>
-                <ProductBlock detailList={detailList} ulClassName="yuna-category-tab" liClassName="yuna-category-tab-list" />
-                {/* <ul>
-                    { detailList && detailList.map((list, i) => 
-                        i < 6 &&
-                        <li>{list.name}</li>
-                    ) } 
-                </ul> */}
-                {/* <ProductBlock /> */}
-                {/* detailList, ulClassName, liClassName */}
+                <ProductBlock detailList={detailList} ulClassName="category-tab" liClassName="category-tab-list" className="category-list" />
             </div>
             }
             {children}

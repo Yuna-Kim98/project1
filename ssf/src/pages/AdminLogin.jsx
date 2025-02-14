@@ -37,7 +37,7 @@ export default function Layout() {
     }
 
     // 서버 전송
-    axios.post('http://localhost:9001/admin/login', formData)
+    axios.post('http://localhost:9000/admin/login', formData)
         .then(res => {
           console.log('res.data --> ', res.data);
           if (res.data.result_rows === 1) {

@@ -3,26 +3,29 @@ import axios from 'axios';
 import { FaStar, FaHeart } from "react-icons/fa";
 import Image from './Image.jsx';
 
-export default function ProductBlock({detailList, ulClassName, liClassName}) {
+export default function ProductBlock({detailList, ulClassName, liClassName, className}) {
+    // className = category-list
     return (
         <ul className={ulClassName}>
             { detailList && detailList.map((item) => 
                 <li className={liClassName}>
-                    <div>
+                    <div className={`${className}-img`}>
                         <Image img={item.img} alt={item.alt} className='' />
                     </div>
-                    <div>
-                        <p>{item.brand && item.brand}</p>
-                        <p>{item.title}</p>
-                        <p>{item.costprice}</p>
-                        <p><span>{item.discount}%</span><span>{item.saleprice}</span></p>
-                        <p>
-                            <span>
+                    <div className={`${className}-info`}>
+                        <p className={`${className}-brand`}>{item.brand && item.brand}</p>
+                        <p className={`${className}-title`}>{item.title}</p>
+                        <p className={`${className}-costprice`}>{item.costprice}</p>
+                        <p className={`${className}-price-container`}>
+                            <span>{item.discount}%</span><span>{item.saleprice}</span>
+                        </p>
+                        <p className={`${className}-star-likes-container`}>
+                            <span className={`${className}-star-wrap`}>
                                 <span><FaStar /></span>
                                 <span>{item.star}</span>
                                 <span>({item.reviewCount})</span>
                             </span>
-                            <span>
+                            <span className={`${className}-likes-wrap`}>
                                 <span><FaHeart /></span>
                                 <span>{item.likes}</span>
                             </span>
@@ -31,64 +34,13 @@ export default function ProductBlock({detailList, ulClassName, liClassName}) {
                 </li>
             ) }
         </ul>
-        // <ul className={ulClassName}>
-        //     { ulClassName === 'yuna-category-tab' ? (
-        //         detailList && detailList.map((item, i) => 
-        //             i < 6 &&
-        //             <li className={liClassName}>
-        //                 <div>
-        //                     <Image img={item.img} alt={item.alt} className='' />
-        //                 </div>
-        //                 <div>
-        //                     <p>{item.brand}</p>
-        //                     <p>{item.title}</p>
-        //                     <p>{item.costprice}</p>
-        //                     <p><span>{item.discount}%</span><span>{item.saleprice}</span></p>
-        //                     <p>
-        //                         <span>
-        //                             <span><FaStar /></span>
-        //                             <span>{item.star}</span>
-        //                         </span>
-        //                         <span>
-        //                             <span><FaHeart /></span>
-        //                             <span>{item.like}</span>
-        //                         </span>
-        //                     </p>
-        //                 </div>
-        //             </li>
-        //         )
-        //     ) : (
-        //         detailList && detailList.map((item, i) => 
-        //             <li className={liClassName}>
-        //                 <div>
-        //                     <Image img={item.img} alt={item.alt} className='' />
-        //                 </div>
-        //                 <div>
-        //                     <p>{item.brand}</p>
-        //                     <p>{item.title}</p>
-        //                     <p>{item.costprice}</p>
-        //                     <p><span>{item.discount}%</span><span>{item.saleprice}</span></p>
-        //                     <p>
-        //                         <span>
-        //                             <span><FaStar /></span>
-        //                             <span>{item.star}</span>
-        //                         </span>
-        //                         <span>
-        //                             <span><FaHeart /></span>
-        //                             <span>{item.like}</span>
-        //                         </span>
-        //                     </p>
-        //                 </div>
-        //             </li>
-        //         )
-        //     ) }
-        // </ul> 
     );
 }
 
 /**
  * 호출 시 npm react-icons 설치 필수
  * 단독으로 쓰이지 않는 것 같아 처음부터 리스트로 컴포넌트 생성. 필요시 분리
- * 호출하는 곳에서 detailList, ulClassName, liClassName 지정하여 구조분해할당으로 받을 것
+ * 호출하는 곳에서 detailList, ulClassName, liClassName, className 지정하여 구조분해할당으로 받을 것
+ *  className : 세부 태그들 클래스명 지정 위해 사용
  * 데이터 수정 필요
 **/
