@@ -23,15 +23,18 @@ export default function AdminMain() {
     }
 
     return (
-        <div>
-            <h1>관리자 페이지 메인</h1>
-            <ul>
-                <li onClick={() => clickTab("customers")}>고객정보</li>
-                <li onClick={() => clickTab("products")}>상품리스트</li>
+        <div className='adminMain-container'>
+            <ul className='adminMain-menu-list'>
+                <li className={category === "customers" ? 'adminMain-menu-select' : 'adminMain-menu'} onClick={() => clickTab("customers")}>
+                    고객정보
+                </li>
+                <li className={category === "products" ? 'adminMain-menu-select' : 'adminMain-menu'} onClick={() => clickTab("products")}>
+                    상품리스트
+                </li>
             </ul>
             { 
                 category === "customers" &&
-                <table>
+                <table className='adminMain-table'>
                     <tr>
                         <th>회원번호</th>
                         <th>이름</th>
@@ -58,20 +61,20 @@ export default function AdminMain() {
             }
             {
                 category === "products" &&
-                <table>
+                <table className='adminMain-table'>
                     <tr>
-                        <th>pid</th>
-                        <th>category</th>
-                        <th>sub_category</th>
-                        <th>name</th>
-                        <th>color</th>
-                        <th>size</th>
-                        <th>likes</th>
-                        <th>star</th>
-                        <th>stock</th>
-                        <th>original_price</th>
-                        <th>discount_rate</th>
-                        <th>discounted_price</th>
+                        <th>상품번호</th>
+                        <th>대분류</th>
+                        <th>소분류</th>
+                        <th>상품명</th>
+                        <th>색상</th>
+                        <th>사이즈</th>
+                        <th>좋아요 수</th>
+                        <th>별점</th>
+                        <th>재고</th>
+                        <th>원가</th>
+                        <th>할인률</th>
+                        <th>판매가</th>
                     </tr>
                     { productData && productData.map((list) =>
                         <tr>

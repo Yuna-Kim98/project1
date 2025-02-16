@@ -22,20 +22,31 @@ export default function Header() {
 console.log('isLoggedIn --> ', isLoggedIn);
 
   return(
-    <div className='adminLogin-header'>
-      <div className='header-left'>
-        <Link to='/' className='header-logo'>
-          <img src="/image/ssfshop.png" alt="" />
-          <span>관리자 페이지</span>
-        </Link>
-      </div>
-      <nav className='header-right'>
-        <Link to='/' type='button' onClick={handleLoginState}>
-          { isLoggedIn ? "로그아웃" : "" }
-        </Link>
-        <Link to='/' className='header-right-menu'>{ isLoggedIn ? "고객정보" : "" }</Link>
-        <Link to='/' className='header-right-menu'>{ isLoggedIn ? "상품리스트" : "" }</Link>
-      </nav>
-    </div>
+    <>
+      { isLoggedIn 
+        ? (
+          <div className='adminLogin-header-loggedin'>
+            <div className='header-left-loggedin'>
+              <Link to='/' className='header-logo-loggedin'>
+                <img src="/image/ssfshop.png" alt="" />
+                <span>관리자 페이지</span>
+              </Link>
+            </div>
+            <nav className='header-right-loggedin'>
+              <Link to='/' type='button' onClick={handleLoginState}>
+              로그아웃
+              </Link>
+            </nav>
+          </div>
+        )
+        : 
+        <div className='adminLogin-header-loggedout'>
+          <Link to='/' className='header-logo-loggedout'>
+            <img src="/image/ssfshop.png" alt="" />
+            <span>관리자 페이지</span>
+          </Link>
+        </div>
+      }
+    </>
   );
 }

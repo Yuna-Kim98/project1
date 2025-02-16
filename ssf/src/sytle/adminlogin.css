@@ -6,32 +6,45 @@ body {
 /*****************************
 ** Header
 *****************************/
-.adminLogin-header {
+.adminLogin-header-loggedout,
+.adminLogin-header-loggedin {
   height: 30px;
-  display: flex;
-  justify-content: space-between;
   background-color: white;
   padding: 20px 30px;
+}
+.header-logo-loggedout {
+  display: flex;
   align-items: center;
 }
-
-.header-logo {
-  text-decoration: none;
+.header-logo-loggedout > img {
+  width: 200px;
+  margin: 0;
 }
-
-.header-logo > span {
-  /* border: 1px solid red; */
+.header-logo-loggedout > span,
+.header-logo-loggedin > span {
   margin-left: 10px;
-  color: rgb(126, 0, 255);
   font-size: 1.1rem;
   font-weight: bold;
 }
 
-.header-right-menu {
-  color: black;
-  text-decoration: none;
-  padding-left: 15px;
-  font-size: 0.9rem;
+.adminLogin-header-loggedin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left-loggedin,
+.header-right-loggedin {
+  margin: 0;
+}
+
+.header-logo-loggedin {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo-loggedin > img {
+  width: 200px;
 }
 
 /*****************************
@@ -120,6 +133,46 @@ body {
 .adminLogin-form-content3 > a > span:first-child {
   margin-right: 35px;
   color: silver;
+}
+
+/*****************************
+** AdminMain
+*****************************/
+.adminMain-container {
+  padding: 30px 0;
+}
+.adminMain-menu-list {
+  display: flex;
+  width: 250px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.adminMain-menu {
+  width: 130px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: gray;
+}
+
+.adminMain-menu-select {
+  width: 130px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.adminMain-table,
+.adminMain-table > tr > th,
+.adminMain-table > tr > td {
+  border: 1px solid #000;
+}
+
+.adminMain-table > tr > th,
+.adminMain-table > tr > td {
+  padding: 5px;
+  text-align: center;
 }
 
 /*****************************
