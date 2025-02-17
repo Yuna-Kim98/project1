@@ -36,6 +36,9 @@ console.log('isLoggedIn --> ', isLoggedIn);
               <Link to='/' type='button' onClick={handleLoginState}>
               로그아웃
               </Link>
+              <Link to='/admin/register' type='button'>
+              상품등록
+              </Link>
             </nav>
           </div>
         )

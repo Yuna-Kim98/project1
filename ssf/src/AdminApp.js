@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AdminLayout from './pages/AdminLayout.jsx';
 import AdminLogin from './pages/AdminLogin.jsx';
 import AdminMain from './pages/AdminMain.jsx';
+import AdminRegiProduct from './pages/AdminRegiProduct.jsx';
 import { AuthProvider } from './auth/AuthContext.js';
 import './sytle/adminlogin.css';
 
@@ -17,6 +18,7 @@ function App() {
             <Route path='/' element={<AdminLayout />}>
               <Route index element={<AdminLogin />} />
               <Route path='/admin/main' element={<AdminMain />} />
+              <Route path='/admin/register' element={<AdminRegiProduct />} />
             </Route>
           </Routes>
         </BrowserRouter>

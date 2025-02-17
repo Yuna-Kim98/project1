@@ -10,7 +10,7 @@ body {
 .adminLogin-header-loggedin {
   height: 30px;
   background-color: white;
-  padding: 20px 30px;
+  padding: 30px 50px;
 }
 .header-logo-loggedout {
   display: flex;
@@ -36,6 +36,11 @@ body {
 .header-left-loggedin,
 .header-right-loggedin {
   margin: 0;
+}
+
+.header-right-loggedin {
+  display: flex;
+  gap: 15px;
 }
 
 .header-logo-loggedin {

@@ -4,21 +4,26 @@ import { FaStar, FaHeart } from "react-icons/fa";
 import Image from './Image.jsx';
 
 export default function ProductBlock({detailList, ulClassName, liClassName, className}) {
-    // className = category-list
+    const name = className.substring(0, 12);
+
     return (
         <ul className={ulClassName}>
-            { detailList && detailList.map((item) => 
+            { detailList && detailList.map((item, i) => 
                 <li className={liClassName}>
                     <div className={`${className}-img`}>
+                        {name === "sub-category" && <p>{i+1}</p>}
                         <Image img={item.img} alt={item.alt} className='' />
                     </div>
                     <div className={`${className}-info`}>
                         <p className={`${className}-brand`}>{item.brand && item.brand}</p>
                         <p className={`${className}-title`}>{item.title}</p>
-                        <p className={`${className}-costprice`}>{item.costprice}</p>
-                        <p className={`${className}-price-container`}>
-                            <span>{item.discount}%</span><span>{item.saleprice}</span>
+                        <p className={`${className}-price-wrap`}>
+                            <p className={`${className}-costprice`}>{item.costprice}</p>
+                            <p className={`${className}-price-container`}>
+                                <span>{item.discount}%</span><span>{item.saleprice}</span>
+                            </p>
                         </p>
+
                         <p className={`${className}-star-likes-container`}>
                             <span className={`${className}-star-wrap`}>
                                 <span><FaStar /></span>

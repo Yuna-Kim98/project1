@@ -1,12 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ProductBlock from '../commons/ProductBlock';
+import { FaStar, FaHeart } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
+import Image from '../commons/Image.jsx';
+import Button from '../commons/Button.jsx';
 
 
 export default function SectionWrap({id, title, children}) {
     const [category, setCategory] = useState("상의"); // 아우터로~ 탭 메뉴 관리
+    const [subCategory, setSubCategory] = useState("하의"); // 랭킹 탭 메뉴 관리
     const [products, setProducts] = useState([]); // category tab 전체 상품 데이터
-    const [detailList, setDetailList] = useState([]); // 필터링을 거친 상품 데이터
+    const [detailList, setDetailList] = useState([]); // 필터링을 거친 상품 데이터(대분류용)
+    const [rankList, setRankList] = useState([]); // 필터링을 거친 상품 데이터(중분류용)
 
     const tabList = [
         { tabName: "상의" },
@@ -19,12 +25,27 @@ export default function SectionWrap({id, title, children}) {
         axios.post("http://localhost:9000/product/category")
                 .then(res => {
                     setProducts(res.data);
-                    const filterProducts = res.data.filter(list => list.category === category);
-                    const result = filterProducts.filter((item, i) => i < 6 && item);
-                    setDetailList(result);
+
+                    const filterCategory = products.filter(list => list.category === category);
+                    const categoryList = filterCategory.filter((item, i) => i < 6 && item);
+
+                    setDetailList(categoryList);
                 })
                 .catch(err => console.log(err));
-    }, [category]);
+    }, [category, detailList]);
+
+    useEffect(() => {
+        axios.post("http://localhost:9000/product/rank")
+                .then(res => {
+                    setProducts(res.data);
+
+                    const filterSubCategory = products.filter(list => list.category === subCategory);
+                    const subCategoryList = filterSubCategory.filter((item, i) => i < 8 && item);
+
+                    setRankList(subCategoryList);
+                })
+                .catch(err => console.log(err));
+    }, [subCategory, rankList]);
 
     return (
         <section id={id} style={{backgroundColor:"green"}}>
@@ -79,6 +100,21 @@ export default function SectionWrap({id, title, children}) {
                 </ul>
                 <ProductBlock detailList={detailList} ulClassName="category-tab" liClassName="category-tab-list" className="category-list" />
             </div>
+            }
+            { 
+                id === 'rank' &&
+                <div className='contents-box god-lists'>
+                    <ul className='sub-category-select'>
+                        { tabList && tabList.map((list) => 
+                            <li className={list.tabName === subCategory ? 'sub-category-select-click-tabMenu' : 'sub-category-select-tabMenu'}
+                                onClick={() => setSubCategory(list.tabName)}>
+                            {list.tabName}
+                            </li>
+                        ) }
+                    </ul>
+                    <ProductBlock detailList={rankList} ulClassName="sub-category-tab" liClassName="sub-category-tab-list" className="sub-category-list" />
+                    <button type='button' className='sub-category-btn'>랭킹 바로가기<IoIosArrowForward /></button>
+                </div>
             }
             {children}
         </section>

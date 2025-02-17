@@ -1642,6 +1642,11 @@ footer .etc .etc-right{
     height: 45px;
     line-height: 20px;
 }
+.category-list-price-wrap > p {
+    height: 25px;
+    line-height: 25px;
+    align-items: center;
+}
 .category-list-costprice {
     text-decoration: line-through;
     color: gray;
@@ -1697,3 +1702,93 @@ footer .etc .etc-right{
         max-width: none;
     }
 } */
+
+/**************************
+ * sub-category(소분류) rank
+ * YuNa
+**************************/
+.sub-category-select {
+    display: flex;
+    justify-content: space-between;
+    width: 270px;
+    margin: 0 auto;
+}
+.sub-category-tab {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.sub-category-tab-list {
+    height: auto;
+}
+
+.sub-category-list-img > p {
+    font-size: 1rem;
+    text-align: left;
+    height: 25px;
+    line-height: 25px;
+}
+
+.sub-category-select-click-tabMenu {
+    color: #000;
+    font-size: 1.3rem;
+    height: 30px;
+    border-bottom: 3px solid #000;
+}
+
+.sub-category-select-tabMenu {
+    color: silver;
+    font-size: 1.3rem;
+}
+.sub-category-list-img {
+    width: 100%;
+}
+.sub-category-list-info {
+    text-align: left;
+    font-size: 1rem;
+    font-weight: normal;
+}
+.sub-category-list-title {
+    /* display: inline-block; */
+    height: auto;
+}
+.sub-category-list-price-wrap > p {
+    height: 25px;
+    line-height: 25px;
+    align-items: center;
+}
+.sub-category-list-costprice {
+    text-decoration: line-through;
+    color: gray;
+    padding: 0;
+}
+.sub-category-list-price-container {
+    font-weight: bold;
+}
+.sub-category-list-price-container > span:first-child {
+    color: var(--purple500);
+    padding-right: 5px;
+}
+.sub-category-list-star-likes-container {
+    font-size: 0.9rem;
+    color: silver;
+}
+.sub-category-list-star-wrap {
+    margin-right: 10px;
+}
+.sub-category-list-star-wrap > span:first-child,
+.sub-category-list-likes-wrap > span:first-child {
+    margin-right: 3px;
+}
+
+.sub-category-btn {
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 15px 60px;
+    margin-top: 30px;
+    color: rgb(53, 53, 53);
+    background-color: #fff;
+    font-size: 1rem;
+}
