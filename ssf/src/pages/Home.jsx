@@ -16,7 +16,7 @@ export default function Home(){
         },
         {
           id: "outer",
-          title: "추천 상품",
+          title: "아우터로 더하는 한 겹의 포근함",
         },
         {
           id: "rank",
@@ -103,7 +103,7 @@ export default function Home(){
             key={section.id}
             id={section.id}
             title={section.title}
-          >
+           >
             {/* Render children if they exist */}
           {Array.isArray(section.children) &&
             section.children.map((child) => renderComponent(child))}

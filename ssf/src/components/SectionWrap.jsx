@@ -13,6 +13,7 @@ export default function SectionWrap({id, title, children}) {
     const [products, setProducts] = useState([]); // category tab 전체 상품 데이터
     const [detailList, setDetailList] = useState([]); // 필터링을 거친 상품 데이터(대분류용)
     const [rankList, setRankList] = useState([]); // 필터링을 거친 상품 데이터(중분류용)
+    const [issueList, setIssueList] = useState([]);
 
     const tabList = [
         { tabName: "상의" },
@@ -46,6 +47,13 @@ export default function SectionWrap({id, title, children}) {
                 })
                 .catch(err => console.log(err));
     }, [subCategory, rankList]);
+
+    useEffect(() => {
+        axios
+            .get("/data/weekly_issue.json")
+            .then(res => setIssueList(res.data))
+            .catch(error => console.log(error));
+    }, []);
 
     return (
         <section id={id} style={{backgroundColor:"green"}}>
@@ -114,6 +122,22 @@ export default function SectionWrap({id, title, children}) {
                     </ul>
                     <ProductBlock detailList={rankList} ulClassName="sub-category-tab" liClassName="sub-category-tab-list" className="sub-category-list" />
                     <button type='button' className='sub-category-btn'>랭킹 바로가기<IoIosArrowForward /></button>
+                </div>
+            }
+            {
+                id === "issue" &&
+                <div className='contents-box god-lists'>
+                    <ul>
+                        { issueList && issueList.map((list) => 
+                            <li>
+                                <img src={list.img} alt="" />
+                                <div>
+                                    <p>{list.description}</p>
+                                    <p>{list.brand}</p>
+                                </div>
+                            </li>
+                        ) }
+                    </ul>
                 </div>
             }
             {children}

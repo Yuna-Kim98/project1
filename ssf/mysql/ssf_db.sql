@@ -321,4 +321,20 @@ select pid,
         original_price,
         discount_rate,
         discounted_price
-from products;
+from products
+order by likes;
+
+select * from admins;
+
+select row_number() over(order by likes) as no,
+					pid,
+					category,
+					name as title,
+					image->>'$[0]' as img,
+					likes,
+					star,
+					stock as reviewCount,
+					format(original_price, 0) as costprice,
+					discount_rate as discount,
+					format(discounted_price, 0) as saleprice
+			from products;
