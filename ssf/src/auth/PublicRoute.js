@@ -8,10 +8,9 @@ const PublicRoute = () => {
 
     if (auth.isLoggedIn) {
         alert("접근할 수 없는 페이지 입니다.");
-        navigate("/admin/login");
     }
 
-    return !auth.isLoggedIn ? <Navigate to="/admin/login" /> : <Outlet />;
+    return auth.isLoggedIn ? <Outlet /> : <Navigate to="/admin/login" />;
 }
 
 export default PublicRoute;

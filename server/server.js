@@ -12,6 +12,8 @@ server.use(cors());
 
 server.use('/admin', adminRouter);
 server.use('/product', productRouter);
+// server.use('/upload', );
+
 // 상품 데이터 가져오기 API
 server.get('/products', async (req, res) => {
     try {

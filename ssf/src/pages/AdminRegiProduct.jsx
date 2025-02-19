@@ -1,14 +1,82 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import ImageUpload from '../commons/ImageUpload';
 
 export default function AdminRegiProduct() {
+    const [fileNames, setFileNames] = useState({});
+    const [preview, setPreview] = useState([]);
+    let [formData, setFormData] = useState({});
+    // const pnameRef = useRef(null);
+    // const refs = {
+    //     categoryRef: useRef("default"),
+    //     subCategoryRef: useRef(null),
+    //     pnameRef: useRef(null),
+    //     colorRef: useRef(null),
+    //     priceRef: useRef(null)
+    // }
+    const categoryRef = useRef("default");
+    const subCategoryRef = useRef(null);
+    const pnameRef = useRef(null);
+    const colorRef = useRef(null);
+    const priceRef = useRef(null);
+
+    const getFileName = (fileNames) => {
+        setFileNames(fileNames);
+        setPreview(fileNames.uploadFileName);
+    }
+
+    // 폼 유효성 체크
+    // const checkForm = () => {
+    //     if (categoryRef.current.value === "default") {
+    //         alert('대분류를 선택해주세요.');
+    //         categoryRef.current.focus();
+    //     } else if (subCategoryRef.current.value === "") {
+    //         alert('소분류를 입력해주세요.');
+    //         subCategoryRef.current.focus();
+    //     } else if (pnameRef.current.value === "") {
+    //         alert('상품명을 입력해주세요.');
+    //         pnameRef.current.focus();
+    //     } else if (colorRef.current.value === "") {
+    //         alert("색상을 입력해주세요.");
+    //         colorRef.current.focus();
+    //     } else if (priceRef.current.value === "") {
+    //         alert('가격을 입력해주세요.');
+    //         priceRef.current.focus();
+    //     }
+    // }
+
+    // // 등록하기 버튼 클릭 이벤트
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (categoryRef.current.value === "default") {
+            alert('대분류를 선택해주세요.');
+            categoryRef.current.focus();
+        } else if (subCategoryRef.current.value === "") {
+            alert('소분류를 입력해주세요.');
+            subCategoryRef.current.focus();
+        } else if (pnameRef.current.value === "") {
+            alert('상품명을 입력해주세요.');
+            pnameRef.current.focus();
+        } else if (colorRef.current.value === "") {
+            alert("색상을 입력해주세요.");
+            colorRef.current.focus();
+        } else if (priceRef.current.value === "") {
+            alert('가격을 입력해주세요.');
+            priceRef.current.focus();
+        } else {
+            formData = {...formData, "uploadFile": fileNames.uploadFileName, "sourceFile": fileNames.sourceFileName}
+        }
+    }
+
+
     return (
         <div className='adminRegiProduct-container'>
             <h3>상품 등록 폼</h3>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <ul>
                     <li>
                         <label>대분류</label>
-                        <select name="" id="">
+                        <select name="" id="" ref={categoryRef}>
+                            <option value="default">선택</option>
                             <option value="top">상의</option>
                             <option value="bottom">하의</option>
                             <option value="outer">아우터</option>
@@ -17,26 +85,26 @@ export default function AdminRegiProduct() {
                     </li>
                     <li>
                         <label>소분류</label>
-                        <input type="text" />
+                        <input type="text" ref={subCategoryRef} />
                     </li>
                     <li>
                         <label>상품명</label>
-                        <input type="text" />
+                        <input type="text" ref={pnameRef} />
                     </li>
                     <li>
                         <label>색상</label>
-                        <input type="text"
-                                placeholder='영문으로 입력해주세요.'
-                        />
+                        <input type="text" ref={colorRef} />
                     </li>
                     <li>
                         <label>가격</label>
-                        <input type="text"
-                                placeholder='구분점 없이 입력해주세요.'
-                        />
+                        <input type="text" ref={colorRef} />
+                    </li>
+                    <li>
+                        <label>사진 업로드</label>
+                        <ImageUpload />
                     </li>
                 </ul>
-                <button type='button'>등록하기</button>
+                <button type='submit'>등록하기</button>
             </form>
         </div>
     );

@@ -6,6 +6,7 @@ const router = express.Router();
 router
     .post('/login', controller.checkAdminLogin)
     .post('/customers', controller.getCustomerData)
-    .post('/products', controller.getProductData);
+    .post('/products', controller.getProductData)
+    .post('/upload', controller.fileUploadMultiple);;
 
 export default router;

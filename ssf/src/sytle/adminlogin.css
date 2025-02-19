@@ -148,24 +148,31 @@ body {
 }
 .adminMain-menu-list {
   display: flex;
-  width: 250px;
+  justify-content: center;
+  gap: 20px;
+  width: 800px;
   margin: 0 auto;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .adminMain-menu {
-  width: 130px;
+  border: 1px solid #7E00FF;
+  background-color: #fff;
+  color: silver;
+  width: 150px;
+  padding: 10px 20px;
   text-align: center;
-  font-size: 1.3rem;
-  color: gray;
+  font-size: 1.2rem;
 }
 
 .adminMain-menu-select {
-  width: 130px;
+  color: #fff;
+  background-color: #7E00FF;
+  width: 150px;
+  padding: 10px 20px;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #000;
 }
 
 .adminMain-table,
@@ -208,4 +215,13 @@ body {
 
 .adminLogin-footer-text:not(:first-child) {
   margin-top: 3px;
+}
+
+/*****************************
+** AdminRegiProduct
+*****************************/
+.adminRegiProduct-container {
+  border: 1px solid red;
+  width: 800px;
+  margin: 0 auto;
 }

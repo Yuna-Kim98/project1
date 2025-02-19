@@ -18,11 +18,9 @@ function AdminApp() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<AdminLayout />}>
-              {/* 로그아웃 시에만 접근 가능 */}
               {/* <Route element={<PublicRoute />}> */}
                 <Route path='/admin/login' element={<AdminLogin />} />
               {/* </Route> */}
-              {/* 로그인 시에만 접근 가능한 페이지 */}
               <Route element={<PrivateRoute />}>
                 <Route index element={<AdminMain />} />
                 <Route path='/admin/register' element={<AdminRegiProduct />} />

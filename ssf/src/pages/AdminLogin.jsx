@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthContext.js';
@@ -17,6 +17,13 @@ export default function Layout() {
 
   const [formData, setFormData] = useState(initForm);
   const [errMsg, setErrMsg] = useState(initForm);
+
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     alert("잘못된 접근입니다.");
+  //     navigate("/");
+  //   }
+  // }, [isLoggedIn]);
 
   /** onChane : 폼 데이터 관리 **/
   const handleChangeForm = (event) => {
@@ -45,6 +52,7 @@ export default function Layout() {
           if (res.data.result_rows === 1) {
             alert('로그인 성공!');
             localStorage.setItem("token", res.data.token);
+            // localStorage.setItem("user_id", formData.id);
             setIsLoggedIn(true);
             navigate('/');
           } else if (refs.idRef.current.value !== '' && refs.pwdRef.current.value !== '' && res.data.result_rows === 0) {
