@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthContext.js';
 
+// 아이디 저장 체크박스 로직 추가하기
+
 export default function Layout() {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -44,7 +46,7 @@ export default function Layout() {
             alert('로그인 성공!');
             localStorage.setItem("token", res.data.token);
             setIsLoggedIn(true);
-            navigate('/admin/main');
+            navigate('/');
           } else if (refs.idRef.current.value !== '' && refs.pwdRef.current.value !== '' && res.data.result_rows === 0) {
             alert('아이디 또는 비밀번호가 일치하지 않습니다.');
             // setErrMsg({...errMsg, ['err']: "아이디 또는 비밀번호가 일치하지 않습니다."});

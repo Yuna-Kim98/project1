@@ -7,7 +7,6 @@ export const AuthProvider = ({children}) => {
         try{
             const tokens = localStorage.getItem('token');
             return tokens ? true : false;
-    
         }catch(error){
             console.log('로컬스토리지 JSON 파싱 오류', error);
             return []; // 오류 발생 시 빈 배열 반환
