@@ -127,13 +127,19 @@ export default function SectionWrap({id, title, children}) {
             {
                 id === "issue" &&
                 <div className='contents-box god-lists'>
-                    <ul>
+                    <ul className='issue-section'>
                         { issueList && issueList.map((list) => 
-                            <li>
-                                <img src={list.img} alt="" />
-                                <div>
-                                    <p>{list.description}</p>
-                                    <p>{list.brand}</p>
+                            <li className='issue-list'>
+                                <div className='issue-list-img'>
+                                    <img src={list.img} alt="image" />
+                                </div>
+                                <div className='issue-list-info'>
+                                    <p className='issue-list-info-des'>
+                                        {list.description.split("\n").map((item) => 
+                                            <p>{item}</p>
+                                        )}
+                                    </p>
+                                    <p className='issue-list-info-brand'>{list.brand}</p>
                                 </div>
                             </li>
                         ) }

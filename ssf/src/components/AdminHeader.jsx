@@ -10,9 +10,9 @@ export default function Header() {
     if (isLoggedIn) { // 로그아웃 버튼을 클릭할 때
       const select = window.confirm('로그아웃 하시겠습니까?');
       if (select) {
-        localStorage.removeItem("token");
         setIsLoggedIn(false);
         navigate('/');
+        localStorage.removeItem("token");
       }
       console.log('select --> ', select);
     } else { // 

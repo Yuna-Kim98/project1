@@ -1888,7 +1888,6 @@ section#order .form_wrap .btns .btn.gray {
  * YuNa
 **************************/
 .category-select {
-    border: 1px solid red;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -1902,6 +1901,7 @@ section#order .form_wrap .btns .btn.gray {
     font-size: 1rem;
     font-weight: 400;
     color: #fff;
+    cursor: pointer;
 }
 .category-select-tabMenu {
     border: 1px solid #000;
@@ -1910,6 +1910,7 @@ section#order .form_wrap .btns .btn.gray {
     border-radius: 30px;
     font-size: 1rem;
     font-weight: 400;
+    cursor: pointer;
 }
 .category-tab {
     display: flex;
@@ -2026,11 +2027,13 @@ section#order .form_wrap .btns .btn.gray {
     font-size: 1.3rem;
     height: 30px;
     border-bottom: 3px solid #000;
+    cursor: pointer;
 }
 
 .sub-category-select-tabMenu {
     color: silver;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 .sub-category-list-img {
     width: 100%;
@@ -2081,4 +2084,43 @@ section#order .form_wrap .btns .btn.gray {
     color: rgb(53, 53, 53);
     background-color: #fff;
     font-size: 1rem;
+}
+
+/**************************
+ * 이주의 브랜드 이슈
+ * YuNa
+**************************/
+.issue-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.issue-list {
+    /* border: 1px solid blue; */
+    margin-bottom: 40px;
+}
+
+.issue-list-img {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+}
+
+.issue-list-img > img {
+    height: 100%;
+}
+
+.issue-list-info {
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.issue-list-info-des > p,
+.issue-list-info-brand {
+    line-height: 20px;
+}
+
+.issue-list-info-brand {
+    font-weight: normal;
 }

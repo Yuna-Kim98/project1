@@ -5,6 +5,7 @@ export default function AdminMain() {
     const [customerData, setCustomerData] = useState([]);
     const [productData, setProductData] = useState([]);
     const [category, setCategory] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         axios.post("http://localhost:9000/admin/customers")
@@ -20,6 +21,7 @@ export default function AdminMain() {
 
     const clickTab = (name) => {
         setCategory(name);
+        setIsOpen(!isOpen);
     }
 
     return (
@@ -32,7 +34,7 @@ export default function AdminMain() {
                     상품리스트
                 </li>
             </ul>
-            { 
+            { isOpen &&
                 category === "customers" &&
                 <table className='adminMain-table'>
                     <tr>
@@ -59,7 +61,7 @@ export default function AdminMain() {
                     ) }
                 </table>
             }
-            {
+            { isOpen &&
                 category === "products" &&
                 <table className='adminMain-table'>
                     <tr>

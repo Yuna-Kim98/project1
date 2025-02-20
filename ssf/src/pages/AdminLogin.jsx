@@ -18,12 +18,17 @@ export default function Layout() {
   const [formData, setFormData] = useState(initForm);
   const [errMsg, setErrMsg] = useState(initForm);
 
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     alert("잘못된 접근입니다.");
-  //     navigate("/");
-  //   }
-  // }, [isLoggedIn]);
+  const token = localStorage.getItem("token");
+  // if (token) {
+  //   alert("잘못된 접근입니다.");
+  //   navigate("/");
+  // }
+  useEffect(() => {
+    if (token) {
+      alert("잘못된 접근입니다.");
+      navigate("/");
+    }
+  }, []);
 
   /** onChane : 폼 데이터 관리 **/
   const handleChangeForm = (event) => {

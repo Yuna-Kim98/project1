@@ -3,14 +3,13 @@ import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext.js";
 
 const PublicRoute = () => {
-    const auth = useContext(AuthContext);
-    const navigate = useNavigate();
+    const { isLoggedIn } = useContext(AuthContext);
 
-    if (auth.isLoggedIn) {
+    if (isLoggedIn) {
         alert("접근할 수 없는 페이지 입니다.");
     }
 
-    return auth.isLoggedIn ? <Outlet /> : <Navigate to="/admin/login" />;
+    return isLoggedIn ? <Outlet /> : <Navigate to="/admin/login" />;
 }
 
 export default PublicRoute;

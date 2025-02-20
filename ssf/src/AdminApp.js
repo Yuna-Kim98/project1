@@ -18,9 +18,7 @@ function AdminApp() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<AdminLayout />}>
-              {/* <Route element={<PublicRoute />}> */}
                 <Route path='/admin/login' element={<AdminLogin />} />
-              {/* </Route> */}
               <Route element={<PrivateRoute />}>
                 <Route index element={<AdminMain />} />
                 <Route path='/admin/register' element={<AdminRegiProduct />} />
