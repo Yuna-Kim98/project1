@@ -1924,14 +1924,23 @@ section#order .form_wrap .btns .btn.gray {
 .category-list-img {
     width: 100%;
 }
+.category-list-info > p {
+    line-height: 25px;
+}
 .category-list-info {
     text-align: left;
     font-size: 1rem;
     font-weight: normal;
 }
+.category-list-brand {
+    font-weight: bold;
+}
 .category-list-title {
     height: 45px;
     line-height: 20px;
+}
+.category-list-price-wrap {
+    margin: 7px 0;
 }
 .category-list-price-wrap > p {
     height: 25px;
@@ -2043,9 +2052,17 @@ section#order .form_wrap .btns .btn.gray {
     font-size: 1rem;
     font-weight: normal;
 }
+.sub-category-list-info > p {
+    line-height: 20px;
+}
+.sub-category-list-brand {
+    font-weight: bold;
+}
 .sub-category-list-title {
-    /* display: inline-block; */
     height: auto;
+}
+.sub-category-list-price-wrap {
+    margin: 7px 0;
 }
 .sub-category-list-price-wrap > p {
     height: 25px;
@@ -2122,5 +2139,44 @@ section#order .form_wrap .btns .btn.gray {
 }
 
 .issue-list-info-brand {
+    font-weight: normal;
+}
+
+/**************************
+ * 주목할 브랜드
+ * YuNa
+**************************/
+.hotBrand1-container {
+    display: flex;
+    gap: 20px;
+}
+.hotBrand1-tab-list {
+    border: 1px solid blue;
+    width: 160px;
+}
+.hotBrand1-img > img {
+    display: block;
+    width: 600px;
+    height: 380px;
+    overflow: hidden;
+}
+/* .hotBrand1-img > img {
+    width: 100%;
+    } */
+.hotBrand1-tab {
+    display: flex;
+    gap: 15px;
+}
+.hotBrand1-list-info {
+    font-size: 0.9rem;
+    text-align: left;
+}
+.hotBrand1-list-info > p {
+    line-height: 25px;
+}
+.hotBrand1-list-info > p:nth-child(2) {
+    height: 50px;
+}
+.hotBrand1-list-info p:not(:first-child) {
     font-weight: normal;
 }

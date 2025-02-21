@@ -10,16 +10,22 @@ import Button from '../commons/Button.jsx';
 export default function SectionWrap({id, title, children}) {
     const [category, setCategory] = useState("상의"); // 아우터로~ 탭 메뉴 관리
     const [subCategory, setSubCategory] = useState("하의"); // 랭킹 탭 메뉴 관리
-    const [products, setProducts] = useState([]); // category tab 전체 상품 데이터
+    const [products, setProducts] = useState([]); // 전체 상품 데이터
     const [detailList, setDetailList] = useState([]); // 필터링을 거친 상품 데이터(대분류용)
     const [rankList, setRankList] = useState([]); // 필터링을 거친 상품 데이터(중분류용)
-    const [issueList, setIssueList] = useState([]);
+    const [issueList, setIssueList] = useState([]); // 브랜드 이슈 리스트
 
     const tabList = [
         { tabName: "상의" },
         { tabName: "하의" },
         { tabName: "아우터" },
         { tabName: "신발" }
+    ];
+
+    const brandList = [
+        { brandName: "NIKE" },
+        { brandName: "GUCCI" },
+        { brandName: "PRADA" }
     ];
     
     useEffect(() => {
@@ -54,6 +60,9 @@ export default function SectionWrap({id, title, children}) {
             .then(res => setIssueList(res.data))
             .catch(error => console.log(error));
     }, []);
+
+    const brand1 = products.filter((list) => list.brand === "NIKE");
+
 
     return (
         <section id={id} style={{backgroundColor:"green"}}>
@@ -144,6 +153,17 @@ export default function SectionWrap({id, title, children}) {
                             </li>
                         ) }
                     </ul>
+                </div>
+            }
+            {
+                id === "brands" &&
+                <div className='contents-box god-lists'>
+                    <div className='hotBrand1-container'>
+                        <div className='hotBrand1-img'>
+                            <img src="/image/example.jpg" alt="" />
+                        </div>
+                        <ProductBlock detailList={brand1} ulClassName="hotBrand1-tab" liClassName="hotBrand1-tab-list" className="hotBrand1-list" />
+                    </div>
                 </div>
             }
             {children}

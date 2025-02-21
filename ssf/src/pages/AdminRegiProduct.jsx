@@ -24,26 +24,6 @@ export default function AdminRegiProduct() {
         setPreview(fileNames.uploadFileName);
     }
 
-    // 폼 유효성 체크
-    // const checkForm = () => {
-    //     if (categoryRef.current.value === "default") {
-    //         alert('대분류를 선택해주세요.');
-    //         categoryRef.current.focus();
-    //     } else if (subCategoryRef.current.value === "") {
-    //         alert('소분류를 입력해주세요.');
-    //         subCategoryRef.current.focus();
-    //     } else if (pnameRef.current.value === "") {
-    //         alert('상품명을 입력해주세요.');
-    //         pnameRef.current.focus();
-    //     } else if (colorRef.current.value === "") {
-    //         alert("색상을 입력해주세요.");
-    //         colorRef.current.focus();
-    //     } else if (priceRef.current.value === "") {
-    //         alert('가격을 입력해주세요.');
-    //         priceRef.current.focus();
-    //     }
-    // }
-
     // // 등록하기 버튼 클릭 이벤트
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -63,7 +43,18 @@ export default function AdminRegiProduct() {
             alert('가격을 입력해주세요.');
             priceRef.current.focus();
         } else {
-            formData = {...formData, "uploadFile": fileNames.uploadFileName, "sourceFile": fileNames.sourceFileName}
+            formData = {
+                ...formData,
+                "category": categoryRef.current.value,
+                "sub_category": subCategoryRef.current.value,
+                "name": pnameRef.current.value,
+                "color": colorRef.current.value,
+                "original_price": priceRef.current.value,
+                "uploadFile": fileNames.uploadFileName, 
+                "sourceFile": fileNames.sourceFileName
+            };
+            console.log('formData --> ', formData);
+            // formData 서버 전송
         }
     }
 
@@ -97,11 +88,11 @@ export default function AdminRegiProduct() {
                     </li>
                     <li>
                         <label>가격</label>
-                        <input type="text" ref={colorRef} />
+                        <input type="text" ref={priceRef} />
                     </li>
                     <li>
                         <label>사진 업로드</label>
-                        <ImageUpload />
+                        <ImageUpload getFileName={getFileName} />
                     </li>
                 </ul>
                 <button type='submit'>등록하기</button>

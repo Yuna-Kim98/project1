@@ -17,6 +17,8 @@ export default function Layout() {
 
   const [formData, setFormData] = useState(initForm);
   const [errMsg, setErrMsg] = useState(initForm);
+  const [saveIdFlag, setSaveIdFlag] = useState(false);
+  const [saveId, setSaveId] = useState(null);
 
   const token = localStorage.getItem("token");
   // if (token) {
@@ -50,6 +52,8 @@ export default function Layout() {
       console.log('send data --> ', formData);
     }
 
+    saveIdFlag && localStorage.setItem("user_id", formData.id);
+
     // 서버 전송
     axios.post('http://localhost:9000/admin/login', formData)
         .then(res => {
@@ -57,7 +61,7 @@ export default function Layout() {
           if (res.data.result_rows === 1) {
             alert('로그인 성공!');
             localStorage.setItem("token", res.data.token);
-            // localStorage.setItem("user_id", formData.id);
+            saveIdFlag && localStorage.setItem("user_id", formData.id);
             setIsLoggedIn(true);
             navigate('/');
           } else if (refs.idRef.current.value !== '' && refs.pwdRef.current.value !== '' && res.data.result_rows === 0) {
@@ -85,6 +89,27 @@ export default function Layout() {
     return true;
   }
 
+  // 아이디 저장 체크박스 활성화 이벤트
+  const handleRememberId = () => {
+    localStorage.setItem("KEY_SAVE_ID_FLAG", !saveIdFlag);
+    setSaveIdFlag(!saveIdFlag);
+  }
+
+  useEffect(() => {
+    // 저장 활성화 버튼 여부 확인
+    let idFlag = JSON.parse(localStorage.getItem("KEY_SAVE_ID_FLAG"));
+    // 저장 여부x -> 현재 저장 여부 저장
+    idFlag !== null && setSaveIdFlag(saveIdFlag);
+
+    // 저장x -> false이면 빈값 저장
+    idFlag === false && localStorage.setItem("user_id", "");
+    // 로컬스토리지에서 id값 호출
+    let data = localStorage.getItem("user_id");
+
+    // 저장o
+    data !== null && setSaveId(data);
+  });
+
   return(
     <div className='adminLogin-container'>
       <div className='adminLogin-contents-wrap'>
@@ -98,7 +123,9 @@ export default function Layout() {
                         name='id' 
                         ref={refs.idRef}
                         onChange={handleChangeForm} 
-                        placeholder='아이디' />
+                        placeholder='아이디'
+                        defaultValue={saveId}
+                        />
                 </li>
                 <li>
                   <input type='password' 
@@ -116,7 +143,7 @@ export default function Layout() {
             { errMsg.pwd !== '' && <p className='adminLogin-form-errMsg'>{errMsg.pwd}</p> }
             {/* 폼 데이터 일치하지 않을 시 에러메시지 :: 아이디 또는 비밀번호가 일치하지 않습니다. */}
             <div className='adminLogin-form-content2'>
-              <input type="checkbox" />아이디 저장
+              <input type="checkbox" checked={saveIdFlag} onClick={handleRememberId} />아이디 저장
             </div>
             <div className='adminLogin-form-content3'>
               <a href=""><span>아이디 찾기</span></a>

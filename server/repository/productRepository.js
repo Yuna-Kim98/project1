@@ -10,7 +10,8 @@ export const getCategoryItems = async() => {
                         stock as reviewCount,
                         format(original_price, 0) as costprice,
                         discount_rate as discount,
-                        format(discounted_price, 0) as saleprice
+                        format(discounted_price, 0) as saleprice,
+                        brand
                 from products`;
 
     const [result] = await db.execute(sql);
@@ -29,7 +30,8 @@ export const getRankItems = async() => {
                 stock as reviewCount,
                 format(original_price, 0) as costprice,
                 discount_rate as discount,
-                format(discounted_price, 0) as saleprice
+                format(discounted_price, 0) as saleprice,
+                brand
         from products
         order by likes
     `;

@@ -8,7 +8,7 @@ import AdminApp from './AdminApp.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <AdminApp />
   </React.StrictMode>
 );
 

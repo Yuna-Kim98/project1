@@ -15,7 +15,7 @@ export default function ProductBlock({detailList, ulClassName, liClassName, clas
                         <Image img={item.img} alt={item.alt} className='' />
                     </div>
                     <div className={`${className}-info`}>
-                        <p className={`${className}-brand`}>{item.brand && item.brand}</p>
+                        <p className={`${className}-brand`}>{item.brand}</p>
                         <p className={`${className}-title`}>{item.title}</p>
                         <p className={`${className}-price-wrap`}>
                             <p className={`${className}-costprice`}>{item.costprice}</p>
